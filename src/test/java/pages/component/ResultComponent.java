@@ -9,4 +9,8 @@ public class ResultComponent {
         $("#dle-content .mailBlock_h").shouldHave(text("Аниме жанра " +  genreType + " типа " + types + " " + yearsType + " года"));
         return this;
     }
+    public ResultComponent checkFastSearch(String anime) {
+        $("[class=\"all_anime_content anime_some_margin\"]").shouldHave(text(anime));
+        return this;
+    }
 }

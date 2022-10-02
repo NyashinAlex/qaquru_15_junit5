@@ -13,7 +13,8 @@ public class JutSu {
             years = $(".anime_choose_wall .anime_years_are_here"),
             type = $(".anime_choose_wall .anime_choose_block_types"),
             sort = $(".anime_choose_wall .anime_orders_are_here"),
-            buttonOk= $("[class = \"anime_choose_category_btns anime_choose_category_ok\"]");
+            buttonOk= $("[class = \"anime_choose_category_btns anime_choose_category_ok\"]"),
+            search = $("#anime_fast_search");
 
     public JutSu openPage() {
         open("https://jut.su/anime/");
@@ -28,6 +29,11 @@ public class JutSu {
         sort.$(byText(sortType)).click();
         buttonOk.click();
         refresh();
+        return this;
+    }
+
+    public JutSu fastSearchAnime(String anime) {
+        search.setValue(anime).pressEnter();
         return this;
     }
 }

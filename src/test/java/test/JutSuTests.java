@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import pages.JutSu;
 import pages.component.ResultComponent;
 
@@ -24,5 +25,11 @@ public class JutSuTests {
         jutSu.openPage()
                 .chooseAnimeForCategory(genreType, yearsType, types, sortType);
         resultComponent.checkWorkFilters(genreType, yearsType, types);
+    }
+    @ValueSource(strings = {"Атака титанов", "Ванпанчмен"})
+    @ParameterizedTest(name = "Search anime {0}")
+    void SearchFastAnime(String testData) {
+        jutSu.openPage().fastSearchAnime(testData);
+        resultComponent.checkFastSearch(testData);
     }
 }
