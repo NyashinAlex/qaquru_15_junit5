@@ -46,7 +46,7 @@ public class JutSuTests {
 
     @MethodSource("buttonsTextsInHeader")
     @ParameterizedTest(name = "Проверка отображения названия кнопок в хедере")
-    void selenideSiteButtonsText(List<String> buttonsTexts) {
+    void checkButtonsTextsInHeader(List<String> buttonsTexts) {
         jutSu.openPage();
         resultComponent.checkButtonInHeader(buttonsTexts);
     }
